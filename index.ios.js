@@ -35,15 +35,18 @@ const styles = StyleSheet.create({
     },
     button: {
         marginTop: 20,
-        padding: 8,
-        backgroundColor: 'white',
+        paddingTop: 8,
+        paddingBottom: 8,
+        paddingLeft: 11,
+        paddingRight: 11,
+        backgroundColor: 'red',
         borderRadius: 4,
     },
 });
 
 class ColoredView extends Component {
     componentWillMount() {
-        Icon.getImageSource('md-arrow-back', 30).then((source) => this.setState({backIcon: source}));
+        Icon.getImageSource('md-arrow-back', 25).then((source) => this.setState({backIcon: source}));
     }
 
     _navigateToSubview() {
@@ -56,17 +59,12 @@ class ColoredView extends Component {
         });
     }
 
-    _onTapMe() {
-        AlertIOS.alert('hello.');
-    }
-
     render() {
         return (
             <View style={[styles.tabContent, {backgroundColor: this.props.color}]}>
                 <Text style={styles.tabText}>{this.props.pageText}</Text>
                 <TouchableOpacity onPress={() => this._navigateToSubview()}>
-                    <View style={styles.button}><Text style={styles.buttonText}
-                                                      onPress={() => this._onTapMe()}>Tap Me</Text></View>
+                    <View style={styles.button}><Text style={styles.buttonText}>下一页</Text></View>
                 </TouchableOpacity>
             </View>
         );
@@ -84,7 +82,7 @@ class ReactNativeSandbox extends Component {
 
     componentWillMount() {
         // https://github.com/facebook/react-native/issues/1403 prevents this to work for initial load
-        Icon.getImageSource('ios-settings', 30).then((source) => this.setState({gearIcon: source}));
+        Icon.getImageSource('ios-settings', 25).then((source) => this.setState({gearIcon: source}));
     }
 
     _renderContent(color, pageText) {
@@ -103,12 +101,11 @@ class ReactNativeSandbox extends Component {
             <NavigatorIOS
                 style={styles.navigator}
                 initialRoute={{
-          component: _component,
-          passProps: props,
-          title: pageText,
-          rightButtonIcon: this.state.gearIcon,
-        }}
-
+                  component: _component,
+                  passProps: props,
+                  title: pageText,
+                  rightButtonIcon: this.state.gearIcon,
+                }}
             />
         );
     }
@@ -124,10 +121,10 @@ class ReactNativeSandbox extends Component {
                     selectedIconName="ios-home"
                     selected={this.state.selectedTab === 'home'}
                     onPress={() => {
-            this.setState({
-              selectedTab: 'home',
-            });
-          }}>
+                      this.setState({
+                        selectedTab: 'home',
+                      });
+                    }}>
                     {this._renderContent('#414A8C', '首页')}
                 </Icon.TabBarItemIOS>
                 <Icon.TabBarItemIOS
@@ -136,10 +133,10 @@ class ReactNativeSandbox extends Component {
                     selectedIconName="ios-time"
                     selected={this.state.selectedTab === 'counter'}
                     onPress={() => {
-            this.setState({
-              selectedTab: 'counter',
-            });
-          }}>
+                      this.setState({
+                        selectedTab: 'counter',
+                      });
+                    }}>
                     {this._renderContent('#a4b758', '计数器')}
                 </Icon.TabBarItemIOS>
                 <Icon.TabBarItemIOS
@@ -148,10 +145,10 @@ class ReactNativeSandbox extends Component {
                     selectedIconName="ios-person"
                     selected={this.state.selectedTab === 'profile'}
                     onPress={() => {
-            this.setState({
-              selectedTab: 'profile',
-            });
-          }}>
+                      this.setState({
+                        selectedTab: 'profile',
+                      });
+                    }}>
                     {this._renderContent('#090', '个人')}
                 </Icon.TabBarItemIOS>
                 <Icon.TabBarItemIOS
@@ -163,10 +160,10 @@ class ReactNativeSandbox extends Component {
                     selected={this.state.selectedTab === 'settings'}
                     renderAsOriginal={true}
                     onPress={() => {
-            this.setState({
-              selectedTab: 'settings',
-            });
-          }}>
+                      this.setState({
+                        selectedTab: 'settings',
+                      });
+                    }}>
                     {this._renderContent('#009', '设置')}
                 </Icon.TabBarItemIOS>
             </TabBarIOS>
