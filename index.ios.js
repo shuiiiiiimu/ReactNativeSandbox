@@ -16,7 +16,7 @@ import Icon from 'react-native-vector-icons/Ionicons';
 import WatchCounter from './view/watch_counter';
 import SwipeCard from './view/swipe_card';
 import SettingPage from './view/setting';
-// import HomePage from './view/home1';
+import HomePage1 from './view/home1';
 import HomePage from './view/home2';
 
 const styles = StyleSheet.create({
@@ -48,6 +48,51 @@ const styles = StyleSheet.create({
     },
 });
 
+
+class NextView1 extends Component {
+    componentWillMount() {
+        Icon.getImageSource('md-arrow-back', 25).then((source) => this.setState({backIcon: source}));
+    }
+
+    _navigateToSubview() {
+        this.props.navigator.push({
+            component: NextView1,
+            title: this.props.pageText,
+            leftButtonIcon: this.state.backIcon,
+            passProps: this.props,
+        });
+    }
+
+    render() {
+        return (
+            <Text style={[styles.text, styles.header]}>
+                根节点上放一个元素，不设置宽度
+            </Text>        
+
+            <View style={{height: 20, backgroundColor: '#333333'}} />
+
+            <Text style={[styles.text, styles.header]}>
+                固定宽度的元素上放一个View，不设置宽度
+            </Text> 
+
+            <View style={{width: 100}}>
+                <View style={{height: 20, backgroundColor: '#333333'}} />
+            </View>
+
+            <Text style={[styles.text, styles.header]}>
+                flex的元素上放一个View，不设置宽度
+            </Text> 
+
+            <View style={{flexDirection: 'row'}}>
+                <View style={{flex: 1}}>
+                <View style={{height: 20, backgroundColor: '#333333'}} />
+                </View>
+                <View style={{flex: 1}}/>
+            </View>
+        );
+    }
+}
+
 class ColoredView extends Component {
     componentWillMount() {
         Icon.getImageSource('md-arrow-back', 25).then((source) => this.setState({backIcon: source}));
@@ -55,7 +100,7 @@ class ColoredView extends Component {
 
     _navigateToSubview() {
         this.props.navigator.push({
-            component: ColoredView,
+            component: NextView1,
             title: this.props.pageText,
             leftButtonIcon: this.state.backIcon,
             onLeftButtonPress: () => this.props.navigator.pop(),
@@ -98,9 +143,9 @@ class ReactNativeSandbox extends Component {
         if (pageText == "设置") {
             _component = SettingPage;
         }
-        if (pageText == "首页") {
-            _component = HomePage;
-        }
+        // if (pageText == "首页") {
+        //     _component = HomePage;
+        // }
         return (
             <NavigatorIOS
                 style={styles.navigator}

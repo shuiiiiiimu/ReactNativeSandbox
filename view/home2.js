@@ -1,6 +1,7 @@
 'use strict';
 
 import React, { Component } from 'react';
+import Icon from 'react-native-vector-icons/Ionicons';
 import {
   	StyleSheet,
 	Text,
@@ -8,6 +9,7 @@ import {
 	Image,
 	TouchableHighlight,
   	ScrollView,
+	Alert
 } from 'react-native';
 
 const sliderImgs = [
@@ -135,130 +137,130 @@ const styles = StyleSheet.create({
 });
 
 export default class extends Component {
-  render(){
-    return(
-		<ScrollView contentContainerStyle={{paddingVertical: 80}}>
-			<View style={styles.container}>
-				<View style={[styles.sbu_red, styles.sbu_view]}>
-					<TouchableHighlight underlayColor={'#FA6778'} style={{flex:1}}>
+	render(){
+		return(
+			<ScrollView contentContainerStyle={{paddingVertical: 80}}>
+				<View style={styles.container}>
+					<View style={[styles.sbu_red, styles.sbu_view]}>
+						<TouchableHighlight underlayColor={'#FA6778'} style={{flex:1}}>
+							<View style={[styles.sbu_flex, styles.sbu_borderRight]}>
+								<View style={[styles.sub_con_flex, styles.sub_text]}>
+									<Text style={[styles.font16]}>酒店</Text>
+								</View>
+								<View style={[styles.sub_con_flex]}>
+									<Image style={[styles.sbu_icon_img]} source={{uri:BUIcon[0]}}></Image>
+								</View>
+							</View>
+						</TouchableHighlight>
+						<View style={[styles.sbu_flex, styles.sbu_borderRight]}>
+							<View style={[styles.sub_con_flex, styles.sub_text, styles.sbu_borderBottom]}>
+								<Text style={[styles.font16]}>海外</Text>
+							</View>
+							<View style={[styles.sub_con_flex, styles.sub_text]}>
+								<Text style={[styles.font16]}>周边</Text>
+							</View>
+						</View>
+						<View style={[styles.sbu_flex]}>
+							<View style={[styles.sub_con_flex, styles.sub_text, styles.sbu_borderBottom]}>
+								<Text style={[styles.font16]}>团购.特惠</Text>
+							</View>
+							<View style={[styles.sub_con_flex, styles.sub_text]}>
+								<Text style={[styles.font16]}>客栈.公寓</Text>
+							</View>
+						</View>
+					</View>
+
+					<View style={[styles.sbu_view, styles.sbu_blue]}>
 						<View style={[styles.sbu_flex, styles.sbu_borderRight]}>
 							<View style={[styles.sub_con_flex, styles.sub_text]}>
-								<Text style={[styles.font16]}>酒店</Text>
+								<Text style={[styles.font16]}>机票</Text>
 							</View>
 							<View style={[styles.sub_con_flex]}>
-								<Image style={[styles.sbu_icon_img]} source={{uri:BUIcon[0]}}></Image>
+								<Image style={[styles.sbu_icon_img]} source={{uri:BUIcon[1]}}></Image>
 							</View>
 						</View>
-					</TouchableHighlight>
-					<View style={[styles.sbu_flex, styles.sbu_borderRight]}>
-						<View style={[styles.sub_con_flex, styles.sub_text, styles.sbu_borderBottom]}>
-							<Text style={[styles.font16]}>海外</Text>
+						<View style={[styles.sbu_flex, styles.sbu_borderRight]}>
+							<View style={[styles.sub_con_flex, styles.sub_text, styles.sbu_borderBottom]}>
+								<Text style={[styles.font16]}>火车票</Text>
+							</View>
+							<View style={[styles.sub_con_flex, styles.sub_text]}>
+								<Text style={[styles.font16]}>接收机</Text>
+							</View>
 						</View>
-						<View style={[styles.sub_con_flex, styles.sub_text]}>
-							<Text style={[styles.font16]}>周边</Text>
+						<View style={[styles.sbu_flex]}>
+							<View style={[styles.sub_con_flex, styles.sub_text, styles.sbu_borderBottom]}>
+								<Text style={[styles.font16]}>汽车票</Text>
+							</View>
+							<View style={[styles.sub_con_flex, styles.sub_text]}>
+								<Text style={[styles.font16]}>自驾.专车</Text>
+							</View>
 						</View>
 					</View>
-					<View style={[styles.sbu_flex]}>
-						<View style={[styles.sub_con_flex, styles.sub_text, styles.sbu_borderBottom]}>
-							<Text style={[styles.font16]}>团购.特惠</Text>
-						</View>
-						<View style={[styles.sub_con_flex, styles.sub_text]}>
-							<Text style={[styles.font16]}>客栈.公寓</Text>
-						</View>
-					</View>
-				</View>
 
-				<View style={[styles.sbu_view, styles.sbu_blue]}>
-					<View style={[styles.sbu_flex, styles.sbu_borderRight]}>
-						<View style={[styles.sub_con_flex, styles.sub_text]}>
-							<Text style={[styles.font16]}>机票</Text>
+					<View style={[styles.sbu_view, styles.sbu_green]}>
+						<View style={[styles.sbu_flex, styles.sbu_borderRight]}>
+							<View style={[styles.sub_con_flex, styles.sub_text]}>
+								<Text style={[styles.font16]}>旅游</Text>
+							</View>
+							<View style={[styles.sub_con_flex]}>
+								<Image style={[styles.sbu_icon_img]} source={{uri:BUIcon[2]}}></Image>
+							</View>
 						</View>
-						<View style={[styles.sub_con_flex]}>
-							<Image style={[styles.sbu_icon_img]} source={{uri:BUIcon[1]}}></Image>
+						<View style={[styles.sbu_flex, styles.sbu_borderRight]}>
+							<View style={[styles.sub_con_flex, styles.sub_text, styles.sbu_borderBottom]}>
+								<Text style={[styles.font16]}>门票.玩乐</Text>
+							</View>
+							<View style={[styles.sub_con_flex, styles.sub_text]}>
+								<Text style={[styles.font16]}>出境WiFi</Text>
+							</View>
+						</View>
+						<View style={[styles.sbu_flex]}>
+							<View style={[styles.sub_con_flex, styles.sub_text, styles.sbu_borderBottom]}>
+								<Text style={[styles.font16]}>邮轮</Text>
+							</View>
+							<View style={[styles.sub_con_flex, styles.sub_text]}>
+								<Text style={[styles.font16]}>签证</Text>
+							</View>
 						</View>
 					</View>
-					<View style={[styles.sbu_flex, styles.sbu_borderRight]}>
-						<View style={[styles.sub_con_flex, styles.sub_text, styles.sbu_borderBottom]}>
-							<Text style={[styles.font16]}>火车票</Text>
-						</View>
-						<View style={[styles.sub_con_flex, styles.sub_text]}>
-							<Text style={[styles.font16]}>接收机</Text>
-						</View>
-					</View>
-					<View style={[styles.sbu_flex]}>
-						<View style={[styles.sub_con_flex, styles.sub_text, styles.sbu_borderBottom]}>
-							<Text style={[styles.font16]}>汽车票</Text>
-						</View>
-						<View style={[styles.sub_con_flex, styles.sub_text]}>
-							<Text style={[styles.font16]}>自驾.专车</Text>
-						</View>
-					</View>
-				</View>
 
-				<View style={[styles.sbu_view, styles.sbu_green]}>
-					<View style={[styles.sbu_flex, styles.sbu_borderRight]}>
-						<View style={[styles.sub_con_flex, styles.sub_text]}>
-							<Text style={[styles.font16]}>旅游</Text>
+					<View style={[styles.sbu_view, styles.sbu_yellow]}>
+						<View style={[styles.sbu_flex, styles.sbu_borderRight]}>
+							<View style={[styles.sub_con_flex, styles.sub_text]}>
+								<Text style={[styles.font16]}>攻略</Text>
+							</View>
+							<View style={[styles.sub_con_flex]}>
+								<Image style={[styles.sbu_icon_img]} source={{uri:BUIcon[3]}}></Image>
+							</View>
 						</View>
-						<View style={[styles.sub_con_flex]}>
-							<Image style={[styles.sbu_icon_img]} source={{uri:BUIcon[2]}}></Image>
+						<View style={[styles.sbu_flex, styles.sbu_borderRight]}>
+							<View style={[styles.sub_con_flex, styles.sub_text, styles.sbu_borderBottom]}>
+								<Text style={[styles.font16]}>周末游</Text>
+							</View>
+							<View style={[styles.sub_con_flex, styles.sub_text]}>
+								<Text style={[styles.font16]}>礼品卡</Text>
+							</View>
+						</View>
+						<View style={[styles.sbu_flex]}>
+							<View style={[styles.sub_con_flex, styles.sub_text, styles.sbu_borderBottom]}>
+								<Text style={[styles.font16]}>美食.购物</Text>
+							</View>
+							<View style={[styles.sub_con_flex, styles.sub_text]}>
+								<Text style={[styles.font16]}>更多</Text>
+							</View>
 						</View>
 					</View>
-					<View style={[styles.sbu_flex, styles.sbu_borderRight]}>
-						<View style={[styles.sub_con_flex, styles.sub_text, styles.sbu_borderBottom]}>
-							<Text style={[styles.font16]}>门票.玩乐</Text>
-						</View>
-						<View style={[styles.sub_con_flex, styles.sub_text]}>
-							<Text style={[styles.font16]}>出境WiFi</Text>
-						</View>
-					</View>
-					<View style={[styles.sbu_flex]}>
-						<View style={[styles.sub_con_flex, styles.sub_text, styles.sbu_borderBottom]}>
-							<Text style={[styles.font16]}>邮轮</Text>
-						</View>
-						<View style={[styles.sub_con_flex, styles.sub_text]}>
-							<Text style={[styles.font16]}>签证</Text>
-						</View>
-					</View>
-				</View>
 
-				<View style={[styles.sbu_view, styles.sbu_yellow]}>
-					<View style={[styles.sbu_flex, styles.sbu_borderRight]}>
-						<View style={[styles.sub_con_flex, styles.sub_text]}>
-							<Text style={[styles.font16]}>攻略</Text>
+					<View style={[styles.img_view]}>
+						<View style={[styles.img_flex, {borderRightWidth:0.5}]}>
+							<Image style={[styles.img_wh]} source={{uri:Images[0]}}></Image>
 						</View>
-						<View style={[styles.sub_con_flex]}>
-							<Image style={[styles.sbu_icon_img]} source={{uri:BUIcon[3]}}></Image>
-						</View>
-					</View>
-					<View style={[styles.sbu_flex, styles.sbu_borderRight]}>
-						<View style={[styles.sub_con_flex, styles.sub_text, styles.sbu_borderBottom]}>
-							<Text style={[styles.font16]}>周末游</Text>
-						</View>
-						<View style={[styles.sub_con_flex, styles.sub_text]}>
-							<Text style={[styles.font16]}>礼品卡</Text>
-						</View>
-					</View>
-					<View style={[styles.sbu_flex]}>
-						<View style={[styles.sub_con_flex, styles.sub_text, styles.sbu_borderBottom]}>
-							<Text style={[styles.font16]}>美食.购物</Text>
-						</View>
-						<View style={[styles.sub_con_flex, styles.sub_text]}>
-							<Text style={[styles.font16]}>更多</Text>
+						<View style={[styles.img_flex, {borderLeftWidth:0,}]}>
+						<Image style={[styles.img_wh]} source={{uri:Images[1]}}></Image>
 						</View>
 					</View>
 				</View>
-
-				<View style={[styles.img_view]}>
-					<View style={[styles.img_flex, {borderRightWidth:0.5}]}>
-						<Image style={[styles.img_wh]} source={{uri:Images[0]}}></Image>
-					</View>
-					<View style={[styles.img_flex, {borderLeftWidth:0,}]}>
-					<Image style={[styles.img_wh]} source={{uri:Images[1]}}></Image>
-					</View>
-				</View>
-			</View>
-    	</ScrollView>
-    );
-  }
+			</ScrollView>
+		);
+	}
 }
