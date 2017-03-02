@@ -6,8 +6,8 @@ import {
     Text,
     View,
     Image,
+    Alert,
     TabBarIOS,
-    AlertIOS,
     NavigatorIOS,
     TouchableOpacity,
 } from 'react-native';
@@ -60,6 +60,7 @@ class ReactNativeSandbox extends Component {
                   passProps: props,
                   title: pageText,
                   rightButtonIcon: this.state.gearIcon,
+                  onRightButtonPress: () => Alert.alert('title', 'message'),
                 }}
             />
         );
