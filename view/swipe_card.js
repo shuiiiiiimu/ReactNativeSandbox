@@ -1,10 +1,3 @@
-/**
- * Day 14
- * Tinder Like Swipe
- * know bugs. simg of png win't change no matter how. Other properties changes fine.
- * but changes to gif works fine
- * Maybe bugs internally
- */
 'use strict';
 
 import React,{ Component } from 'react';

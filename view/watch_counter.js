@@ -1,7 +1,3 @@
-/**
- * Day 1
- * A stop watch
- */
 'use strict';
 
 import React,{ Component } from 'react';
@@ -255,7 +251,7 @@ const styles = StyleSheet.create({
     watchContainer:{
         alignItems: "center",
         backgroundColor: "#f3f3f3",
-        marginTop: 60,
+        marginTop: 20,
     },
     watchFaceContainer:{
         width: Util.size.width,

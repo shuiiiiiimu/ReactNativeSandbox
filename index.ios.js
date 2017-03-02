@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import Swiper from 'react-native-swiper';
 import {
     AppRegistry,
     StyleSheet,
@@ -14,6 +15,9 @@ import {
 import Icon from 'react-native-vector-icons/Ionicons';
 import WatchCounter from './view/watch_counter';
 import SwipeCard from './view/swipe_card';
+import SettingPage from './view/setting';
+// import HomePage from './view/home1';
+import HomePage from './view/home2';
 
 const styles = StyleSheet.create({
     navigator: {
@@ -91,11 +95,11 @@ class ReactNativeSandbox extends Component {
         }
         const props = {color, pageText};
         let _component = ColoredView;
-        if (pageText == "计数器") {
-            _component = WatchCounter;
+        if (pageText == "设置") {
+            _component = SettingPage;
         }
-        if (pageText == "个人") {
-            _component = SwipeCard;
+        if (pageText == "首页") {
+            _component = HomePage;
         }
         return (
             <NavigatorIOS
@@ -137,7 +141,7 @@ class ReactNativeSandbox extends Component {
                         selectedTab: 'counter',
                       });
                     }}>
-                    {this._renderContent('#a4b758', '计数器')}
+                    <WatchCounter></WatchCounter>
                 </Icon.TabBarItemIOS>
                 <Icon.TabBarItemIOS
                     title="个人"
@@ -149,16 +153,16 @@ class ReactNativeSandbox extends Component {
                         selectedTab: 'profile',
                       });
                     }}>
-                    {this._renderContent('#090', '个人')}
+                    <SwipeCard></SwipeCard>
                 </Icon.TabBarItemIOS>
                 <Icon.TabBarItemIOS
                     title="设置"
                     iconName="ios-settings-outline"
                     selectedIconName="ios-settings"
-                    iconColor="#ffffff"
-                    selectedIconColor="#000099"
+                    // iconColor="#ffffff"
+                    // selectedIconColor="#000099"
                     selected={this.state.selectedTab === 'settings'}
-                    renderAsOriginal={true}
+                    // renderAsOriginal={true}
                     onPress={() => {
                       this.setState({
                         selectedTab: 'settings',
