@@ -49,14 +49,14 @@ const styles = StyleSheet.create({
 });
 
 
-class NextView1 extends Component {
+class NextView extends Component {
     componentWillMount() {
         Icon.getImageSource('md-arrow-back', 25).then((source) => this.setState({backIcon: source}));
     }
 
     _navigateToSubview() {
         this.props.navigator.push({
-            component: NextView1,
+            component: NextView,
             title: this.props.pageText,
             leftButtonIcon: this.state.backIcon,
             passProps: this.props,
@@ -65,29 +65,25 @@ class NextView1 extends Component {
 
     render() {
         return (
-            <Text style={[styles.text, styles.header]}>
-                根节点上放一个元素，不设置宽度
-            </Text>        
-
-            <View style={{height: 20, backgroundColor: '#333333'}} />
-
-            <Text style={[styles.text, styles.header]}>
-                固定宽度的元素上放一个View，不设置宽度
-            </Text> 
-
-            <View style={{width: 100}}>
-                <View style={{height: 20, backgroundColor: '#333333'}} />
-            </View>
-
-            <Text style={[styles.text, styles.header]}>
-                flex的元素上放一个View，不设置宽度
-            </Text> 
-
-            <View style={{flexDirection: 'row'}}>
-                <View style={{flex: 1}}>
-                <View style={{height: 20, backgroundColor: '#333333'}} />
+            <View style={{backgroundColor: 'green',flex:1, }}>
+                <View style={{backgroundColor: 'red', height: 100, marginTop:80, alignItems:'center',justifyContent: 'center'}}>
+                    <Text style={styles.tabText}>column1</Text>
                 </View>
-                <View style={{flex: 1}}/>
+                <Text style={{fontSize: 30, color: '#F2B3FE', height: 40}}>column2</Text>
+                <View style={{backgroundColor: 'black', height: 100, alignItems:'center', justifyContent: 'center'}}>
+                    <Text style={styles.tabText}>column3</Text>
+                </View>
+                <View style={ {flexDirection:'row', height:100, backgroundColor:"darkgray"}}>
+                    <View style={ {flex:1,backgroundColor:"darkcyan", marginLeft:5}}>
+                        <Text style={ {fontSize:16}}>flex:1</Text>
+                    </View>
+                    <View style={ {flex:2, height:40, backgroundColor:"darkcyan", margin:5}}>
+                        <Text style={ {fontSize:16}}>flex:2</Text>
+                    </View>
+                    <View style={ {flex:3,backgroundColor:"darkcyan", marginTop:10}}>
+                        <Text style={ {fontSize:16}}>flex:3</Text>
+                    </View>
+                </View>
             </View>
         );
     }
@@ -100,7 +96,7 @@ class ColoredView extends Component {
 
     _navigateToSubview() {
         this.props.navigator.push({
-            component: NextView1,
+            component: NextView,
             title: this.props.pageText,
             leftButtonIcon: this.state.backIcon,
             onLeftButtonPress: () => this.props.navigator.pop(),
