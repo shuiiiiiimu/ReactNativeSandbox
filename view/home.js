@@ -13,6 +13,7 @@ import {
 } from 'react-native';
 
 import Icon from 'react-native-vector-icons/Ionicons';
+import Swiper from 'react-native-swiper';
 
 
 const styles = StyleSheet.create({
@@ -23,6 +24,7 @@ const styles = StyleSheet.create({
 	},
 	//slider
 	wrapper: {
+		marginTop: -1,
   		height:80,
 	},
 	slide: {
@@ -109,9 +111,9 @@ const styles = StyleSheet.create({
 });
 
 const sliderImgs = [
-	'http://images3.c-ctrip.com/SBU/apph5/201505/16/app_home_ad16_640_128.png',
-	'http://images3.c-ctrip.com/rk/apph5/C1/201505/app_home_ad49_640_128.png',
-	'http://images3.c-ctrip.com/rk/apph5/D1/201506/app_home_ad05_640_128.jpg'
+	'https://images3.c-ctrip.com/SBU/apph5/201505/16/app_home_ad16_640_128.png',
+	'https://images3.c-ctrip.com/rk/apph5/C1/201505/app_home_ad49_640_128.png',
+	'https://images3.c-ctrip.com/rk/apph5/D1/201506/app_home_ad05_640_128.jpg'
 ];
 
 const BUIcon = [
@@ -119,12 +121,11 @@ const BUIcon = [
 	'https://raw.githubusercontent.com/vczero/vczero.github.io/master/ctrip/feiji.png',
 	'https://raw.githubusercontent.com/vczero/vczero.github.io/master/ctrip/lvyou.png',
 	'https://raw.githubusercontent.com/vczero/vczero.github.io/master/ctrip/gonglue.png'
-
 ];
 
 const Images = [
-	'http://webresource.c-ctrip.com/ResCRMOnline/R5/html5/images/zzz_pic_salead01.png',
-	'http://images3.c-ctrip.com/rk/apph5/B1/201505/app_home_ad06_310_120.jpg'
+	'https://webresource.c-ctrip.com/ResCRMOnline/R5/html5/images/zzz_pic_salead01.png',
+	'https://images3.c-ctrip.com/rk/apph5/B1/201505/app_home_ad06_310_120.jpg'
 ];
 
 class Slider extends Component{
@@ -196,7 +197,10 @@ export default class extends Component {
 
     render() {
         return(
-			<ScrollView contentContainerStyle={{paddingVertical: 80}}>
+			//<ScrollView contentContainerStyle={{paddingVertical: 10}}>
+			<ScrollView>
+				<Slider/>
+
 				<View style={styles.container}>
 					<View style={[styles.sbu_red, styles.sbu_view]}>
 						<TouchableOpacity underlayColor={'#FA6778'} style={{flex:1}} onPress={() => this._navigateToSubview()}>
@@ -313,7 +317,7 @@ export default class extends Component {
 							<Image style={[styles.img_wh]} source={{uri:Images[0]}}></Image>
 						</View>
 						<View style={[styles.img_flex, {borderLeftWidth:0,}]}>
-						<Image style={[styles.img_wh]} source={{uri:Images[1]}}></Image>
+							<Image style={[styles.img_wh]} source={{uri:Images[1]}}></Image>
 						</View>
 					</View>
 				</View>

@@ -45,7 +45,7 @@ class ReactNativeSandbox extends Component {
         return (
             <TabBarIOS
                 tintColor="black"
-                barTintColor="#3abeff">
+                barTintColor="#F5FCFF">
                 <Icon.TabBarItemIOS
                     title="首页"
                     iconName="ios-home-outline"
