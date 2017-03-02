@@ -16,9 +16,7 @@ import Icon from 'react-native-vector-icons/Ionicons';
 import WatchCounter from './view/watch_counter';
 import SwipeCard from './view/swipe_card';
 import SettingPage from './view/setting';
-import HomePage1 from './view/home1';
-import HomePage from './view/home2';
-import ColoredView from './view/colored_view';
+import HomePage from './view/home';
 
 const styles = StyleSheet.create({
     navigator: {
@@ -37,36 +35,13 @@ class ReactNativeSandbox extends Component {
 
     componentWillMount() {
         // https://github.com/facebook/react-native/issues/1403 prevents this to work for initial load
-        Icon.getImageSource('ios-settings', 25).then((source) => this.setState({gearIcon: source}));
-    }
-
-    _renderContent(color, pageText) {
-        if (!this.state.gearIcon) {
-            return false;
-        }
-        const props = {color, pageText};
-        let _component = ColoredView;
-        if (pageText == "设置") {
-            _component = SettingPage;
-        }
-        // if (pageText == "首页") {
-        //     _component = HomePage;
-        // }
-        return (
-            <NavigatorIOS
-                style={styles.navigator}
-                initialRoute={{
-                  component: _component,
-                  passProps: props,
-                  title: pageText,
-                  rightButtonIcon: this.state.gearIcon,
-                  onRightButtonPress: () => Alert.alert('title', 'message'),
-                }}
-            />
-        );
+        Icon.getImageSource('md-qr-scanner', 25).then((source) => this.setState({gearIcon: source}));
     }
 
     render() {
+        if (!this.state.gearIcon) {
+            return false;
+        }
         return (
             <TabBarIOS
                 tintColor="black"
@@ -81,7 +56,15 @@ class ReactNativeSandbox extends Component {
                         selectedTab: 'home',
                       });
                     }}>
-                    {this._renderContent('#414A8C', '首页')}
+                    <NavigatorIOS
+                        style={styles.navigator}
+                        initialRoute={{
+                            component: HomePage,
+                            title: '首页',
+                            rightButtonIcon: this.state.gearIcon,
+                            onRightButtonPress: () => Alert.alert('title', 'message'),
+                        }}
+                    />
                 </Icon.TabBarItemIOS>
                 <Icon.TabBarItemIOS
                     title="计数器"
@@ -120,7 +103,15 @@ class ReactNativeSandbox extends Component {
                         selectedTab: 'settings',
                       });
                     }}>
-                    {this._renderContent('#009', '设置')}
+                    <NavigatorIOS
+                        style={styles.navigator}
+                        initialRoute={{
+                            component: SettingPage,
+                            title: '设置',
+                            rightButtonIcon: this.state.gearIcon,
+                            onRightButtonPress: () => Alert.alert('title', 'message'),
+                        }}
+                    />
                 </Icon.TabBarItemIOS>
             </TabBarIOS>
         );
