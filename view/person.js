@@ -17,11 +17,11 @@ const styles = StyleSheet.create({
 	},
 	header: {
 		flexDirection:'row',
-		paddingLeft: 10, 
+		paddingLeft: 15, 
 		paddingTop: 5,
 		paddingBottom: 5,
 		backgroundColor: 'white',
-		height: 70,
+		height: 80,
 		marginTop: 78,
 		alignItems: 'center',
 	},
@@ -31,18 +31,13 @@ const styles = StyleSheet.create({
 		resizeMode:Image.resizeMode.contain,
 	},
 	headerNick: {
-		flex:10, 
+		flex:8, 
 		marginLeft: 10,
 	},
 	headerText: {
-		paddingTop: 8,
+		paddingTop: 5,
 		fontSize: 12,
 		color: '#2F4F4F',
-	},
-	headerNext: {
-		// justifyContent: 'center',
-		flex:2, 
-		// justifyContent:'flex-end',
 	},
 	splitor: {
 		flexDirection:'row',
@@ -55,7 +50,7 @@ const styles = StyleSheet.create({
     	// borderBottomWidth: 2,
 		marginBottom: 1,
 		backgroundColor: 'white',
-        paddingLeft: 10,
+        paddingLeft: 15,
 		alignItems: 'center',
         flexDirection: 'row',
     },
@@ -70,7 +65,8 @@ const styles = StyleSheet.create({
 		marginTop: 3,
 		flex:1,
 		justifyContent:'flex-end',
-		color: '#CDCDCD'
+		color: '#CDCDCD',
+		marginRight: -10,
 	},
 	itemIcon: {
 		marginTop: 3,
@@ -98,12 +94,12 @@ export default class extends Component {
 					<Icon name='md-paper'
 						color={this.state.itemIconColor}
 						size={this.state.itemIconSize}
-						style={{flex:1, color: '#CDCDCD', justifyContent:'flex-start'}}
+						style={{flex:1, color: '#CDCDCD', justifyContent:'flex-start', marginRight: -7,}}
 					/>
 					<Icon name='ios-arrow-forward'
 						color={this.state.itemIconColor}
 						size={this.state.itemIconSize}
-						style={{flex:2, color: '#CDCDCD',justifyContent:'flex-end', marginRight: -20,}}
+						style={{flex:2, color: '#CDCDCD',justifyContent:'flex-end', marginRight: -40,}}
 					/>
                 </View>
 
