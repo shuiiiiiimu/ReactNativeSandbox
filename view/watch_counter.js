@@ -103,12 +103,13 @@ class WatchRecord extends Component{
                 style={styles.recordList}
                 dataSource={theDataSource}
                 renderRow={(rowData) =>
-          <View style={styles.recordItem}>
-            <Text style={styles.recordItemTitle}>{rowData.title}</Text>
-            <View style={{alignItems: "center"}}>
-              <Text style={styles.recordItemTime}>{rowData.time}</Text>
-            </View>
-          </View>}/>
+                    <View style={styles.recordItem}>
+                        <Text style={styles.recordItemTitle}>{rowData.title}</Text>
+                        <View style={{alignItems: "center"}}>
+                            <Text style={styles.recordItemTime}>{rowData.time}</Text>
+                        </View>
+                    </View>}
+            />
         );
     }
 }

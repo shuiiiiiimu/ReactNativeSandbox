@@ -46,7 +46,6 @@ const styles = StyleSheet.create({
 		borderColor:'#FA6778',
 		marginTop:-70,
 	},
-
 	sbu_blue:{
 		backgroundColor: '#3D98FF',
 		borderColor:'#3D98FF',
@@ -56,7 +55,6 @@ const styles = StyleSheet.create({
 		backgroundColor: '#5EBE00',
 		borderColor:'#5EBE00',
 	},
-
 	sbu_yellow:{
 		backgroundColor: '#FC9720',
 		borderColor:'#FC9720',

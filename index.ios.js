@@ -15,7 +15,7 @@ import {
 import Icon from 'react-native-vector-icons/Ionicons';
 import WatchCounter from './view/watch_counter';
 import SwipeCard from './view/swipe_card';
-import SettingPage from './view/setting';
+import PersonPage from './view/person';
 import HomePage from './view/home';
 
 const styles = StyleSheet.create({
@@ -29,7 +29,7 @@ class ReactNativeSandbox extends Component {
         super(props);
 
         this.state = {
-            selectedTab: 'home',
+            selectedTab: 'person',
         };
     }
 
@@ -79,37 +79,37 @@ class ReactNativeSandbox extends Component {
                     <WatchCounter></WatchCounter>
                 </Icon.TabBarItemIOS>
                 <Icon.TabBarItemIOS
-                    title="个人"
-                    iconName="ios-person-outline"
-                    selectedIconName="ios-person"
-                    selected={this.state.selectedTab === 'profile'}
+                    title="发现"
+                    iconName="ios-navigate-outline"
+                    selectedIconName="ios-navigate"
+                    selected={this.state.selectedTab === 'find'}
                     onPress={() => {
                       this.setState({
-                        selectedTab: 'profile',
+                        selectedTab: 'find',
                       });
                     }}>
                     <SwipeCard></SwipeCard>
                 </Icon.TabBarItemIOS>
                 <Icon.TabBarItemIOS
-                    title="设置"
-                    iconName="ios-settings-outline"
-                    selectedIconName="ios-settings"
+                    title="个人"
+                    iconName="ios-person-outline"
+                    selectedIconName="ios-person"
                     // iconColor="#ffffff"
                     // selectedIconColor="#000099"
-                    selected={this.state.selectedTab === 'settings'}
+                    selected={this.state.selectedTab === 'person'}
                     // renderAsOriginal={true}
                     onPress={() => {
                       this.setState({
-                        selectedTab: 'settings',
+                        selectedTab: 'person',
                       });
                     }}>
                     <NavigatorIOS
                         style={styles.navigator}
                         initialRoute={{
-                            component: SettingPage,
-                            title: '设置',
-                            rightButtonIcon: this.state.gearIcon,
-                            onRightButtonPress: () => Alert.alert('title', 'message'),
+                            component: PersonPage,
+                            title: '我',
+                            //rightButtonIcon: this.state.gearIcon,
+                            //onRightButtonPress: () => Alert.alert('title', 'message'),
                         }}
                     />
                 </Icon.TabBarItemIOS>
