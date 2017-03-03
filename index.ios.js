@@ -10,6 +10,8 @@ import {
     TabBarIOS,
     NavigatorIOS,
     TouchableOpacity,
+    StatusBarIOS,
+    StatusBar,
 } from 'react-native';
 
 import Icon from 'react-native-vector-icons/Ionicons';
@@ -29,7 +31,7 @@ class ReactNativeSandbox extends Component {
         super(props);
 
         this.state = {
-            selectedTab: 'home',
+            selectedTab: 'person',
         };
     }
 
@@ -43,77 +45,85 @@ class ReactNativeSandbox extends Component {
             return false;
         }
         return (
-            <TabBarIOS
-                tintColor="black"
-                barTintColor="#F5FCFF">
-                <Icon.TabBarItemIOS
-                    title="首页"
-                    iconName="ios-home-outline"
-                    selectedIconName="ios-home"
-                    selected={this.state.selectedTab === 'home'}
-                    onPress={() => {
-                      this.setState({
-                        selectedTab: 'home',
-                      });
-                    }}>
-                    <NavigatorIOS
-                        style={styles.navigator}
-                        initialRoute={{
-                            component: HomePage,
-                            title: '首页',
-                            rightButtonIcon: this.state.gearIcon,
-                            onRightButtonPress: () => Alert.alert('title', 'message'),
-                        }}
-                    />
-                </Icon.TabBarItemIOS>
-                <Icon.TabBarItemIOS
-                    title="计数器"
-                    iconName="ios-time-outline"
-                    selectedIconName="ios-time"
-                    selected={this.state.selectedTab === 'counter'}
-                    onPress={() => {
-                      this.setState({
-                        selectedTab: 'counter',
-                      });
-                    }}>
-                    <WatchCounter></WatchCounter>
-                </Icon.TabBarItemIOS>
-                <Icon.TabBarItemIOS
-                    title="发现"
-                    iconName="ios-navigate-outline"
-                    selectedIconName="ios-navigate"
-                    selected={this.state.selectedTab === 'find'}
-                    onPress={() => {
-                      this.setState({
-                        selectedTab: 'find',
-                      });
-                    }}>
-                    <SwipeCard></SwipeCard>
-                </Icon.TabBarItemIOS>
-                <Icon.TabBarItemIOS
-                    title="个人"
-                    iconName="ios-person-outline"
-                    selectedIconName="ios-person"
-                    // iconColor="#ffffff"
-                    // selectedIconColor="#000099"
-                    selected={this.state.selectedTab === 'person'}
-                    // renderAsOriginal={true}
-                    onPress={() => {
-                      this.setState({
-                        selectedTab: 'person',
-                      });
-                    }}>
-                    <NavigatorIOS
-                        style={styles.navigator}
-                        initialRoute={{
-                            component: PersonPage,
-                            title: '我',
-                            //rightButtonIcon: this.state.gearIcon,
-                            //onRightButtonPress: () => Alert.alert('title', 'message'),
-                        }}
-                    />
-                </Icon.TabBarItemIOS>
-            </TabBarIOS>
+            <View style={{flex: 1}}>
+                <StatusBar backgroundColor="#FFFFFF"  barStyle="light-content" />
+                <TabBarIOS
+                    tintColor="#1ea114"
+                    barTintColor="#F5FCFF">
+                    <Icon.TabBarItemIOS
+                        title="首页"
+                        iconName="ios-home-outline"
+                        selectedIconName="ios-home"
+                        selected={this.state.selectedTab === 'home'}
+                        onPress={() => {
+                        this.setState({
+                            selectedTab: 'home',
+                        });
+                        }}>
+                        <NavigatorIOS
+                            style={styles.navigator}
+                            initialRoute={{
+                                component: HomePage,
+                                title: '首页',
+                                rightButtonIcon: this.state.gearIcon,
+                                onRightButtonPress: () => Alert.alert('title', 'message'),
+                            }}
+                        />
+                    </Icon.TabBarItemIOS>
+                    <Icon.TabBarItemIOS
+                        title="计数器"
+                        iconName="ios-time-outline"
+                        selectedIconName="ios-time"
+                        selected={this.state.selectedTab === 'counter'}
+                        onPress={() => {
+                        this.setState({
+                            selectedTab: 'counter',
+                        });
+                        }}>
+                        <WatchCounter></WatchCounter>
+                    </Icon.TabBarItemIOS>
+                    <Icon.TabBarItemIOS
+                        title="发现"
+                        iconName="ios-navigate-outline"
+                        selectedIconName="ios-navigate"
+                        selected={this.state.selectedTab === 'find'}
+                        onPress={() => {
+                        this.setState({
+                            selectedTab: 'find',
+                        });
+                        }}>
+                        <SwipeCard></SwipeCard>
+                    </Icon.TabBarItemIOS>
+                    <Icon.TabBarItemIOS
+                        title="我"
+                        iconName="ios-person-outline"
+                        selectedIconName="ios-person"
+                        // iconColor="#ffffff"
+                        // selectedIconColor="#000099"
+                        selected={this.state.selectedTab === 'person'}
+                        // renderAsOriginal={true}
+                        onPress={() => {
+                        this.setState({
+                            selectedTab: 'person',
+                        });
+                        }}>
+                        <NavigatorIOS
+                            style={styles.navigator}
+                            barTintColor='black'//'#27262d'
+                            barStyle="white"
+                            titleTextColor='white'
+                            translucent={false}
+                            //navigationBarHidden={true}        // 隐藏导航栏
+                            initialRoute={{
+                                component: PersonPage,
+                                title: '我',
+                                //rightButtonIcon: this.state.gearIcon,
+                                //onRightButtonPress: () => Alert.alert('title', 'message'),
+                            }}
+                        />
+                    </Icon.TabBarItemIOS>
+                </TabBarIOS>
+            </View>
         );
     }
 }
