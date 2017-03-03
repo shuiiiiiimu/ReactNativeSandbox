@@ -21,17 +21,17 @@ const styles = StyleSheet.create({
 		paddingTop: 5,
 		paddingBottom: 5,
 		backgroundColor: 'white',
-		height: 60,
+		height: 70,
 		marginTop: 78,
-		justifyContent: 'center',
+		alignItems: 'center',
 	},
 	headerImg: {
-		height: 50,
-		width: 50,
+		height: 60,
+		width: 60,
 		resizeMode:Image.resizeMode.contain,
 	},
 	headerNick: {
-		flex:2, 
+		flex:10, 
 		marginLeft: 10,
 	},
 	headerText: {
@@ -40,8 +40,9 @@ const styles = StyleSheet.create({
 		color: '#2F4F4F',
 	},
 	headerNext: {
-		justifyContent: 'center',
-		paddingRight: 10,
+		// justifyContent: 'center',
+		flex:2, 
+		// justifyContent:'flex-end',
 	},
 	splitor: {
 		flexDirection:'row',
@@ -58,18 +59,23 @@ const styles = StyleSheet.create({
 		alignItems: 'center',
         flexDirection: 'row',
     },
-    itemNext: {
-		fontSize:14, 
-		color: '#CDCDCD',
-	},
 	itemText: {
 		fontSize: 14,
 		color: '#2F4F4F',
-		marginLeft: 8,
+		flex: 10,
+		justifyContent: 'flex-start',
+		marginLeft: -9,
+	},
+	itemIconNext: {
+		marginTop: 3,
+		flex:1,
+		justifyContent:'flex-end',
+		color: '#CDCDCD'
 	},
 	itemIcon: {
 		marginTop: 3,
-	}
+		flex:1,
+	},
 });
 
 export default class extends Component {
@@ -77,7 +83,7 @@ export default class extends Component {
 		super(props);
 		this.state = {
 			itemIconColor: '#666',
-			itemIconSize: 16,
+			itemIconSize: 18,
 		};
 	}
 	render() {
@@ -89,34 +95,45 @@ export default class extends Component {
                         <Text style={[styles.headerText, {fontWeight:'bold',fontSize: 14,}]}>水木</Text>
 						<Text style={styles.headerText}>微信号：xxxxxxxxx</Text>
                     </View>
-					<View style={styles.headerNext}>
-						<Icon name='ios-barcode'
-							color={this.state.itemIconColor}
-							size={this.state.itemIconSize}
-						/>
-						<Text style={styles.itemNext}>></Text>
-					</View>
+					<Icon name='md-paper'
+						color={this.state.itemIconColor}
+						size={this.state.itemIconSize}
+						style={{flex:1, color: '#CDCDCD', justifyContent:'flex-start'}}
+					/>
+					<Icon name='ios-arrow-forward'
+						color={this.state.itemIconColor}
+						size={this.state.itemIconSize}
+						style={{flex:2, color: '#CDCDCD',justifyContent:'flex-end', marginRight: -20,}}
+					/>
                 </View>
 
 				<View style={styles.splitor}></View>
 
                 <View style={styles.item}>
-					<Icon name='ios-albums'
+					<Icon name='md-image'
 						color={this.state.itemIconColor}
 						size={this.state.itemIconSize}
 						style={styles.itemIcon}
 					/>
-                    <Text style={styles.itemText}>相册</Text>
-					<Text style={styles.itemNext}>></Text>
+					<Text style={styles.itemText}>相册</Text>
+					<Icon name='ios-arrow-forward'
+						color={this.state.itemIconColor}
+						size={this.state.itemIconSize}
+						style={styles.itemIconNext}
+					/>
                 </View>
 				<View style={styles.item}>
-					<Icon name='ios-school'
+					<Icon name='ios-cube'
 						color={this.state.itemIconColor}
 						size={this.state.itemIconSize}
 						style={styles.itemIcon}
 					/>
-                    <Text style={styles.itemText}>收藏</Text>
-					<Text style={styles.itemNext}>></Text>
+					<Text style={styles.itemText}>收藏</Text>
+					<Icon name='ios-arrow-forward'
+						color={this.state.itemIconColor}
+						size={this.state.itemIconSize}
+						style={styles.itemIconNext}
+					/>
                 </View>
 				<View style={styles.item}>
 					<Icon name='ios-archive'
@@ -124,8 +141,12 @@ export default class extends Component {
 						size={this.state.itemIconSize}
 						style={styles.itemIcon}
 					/>
-                    <Text style={styles.itemText}>钱包</Text>
-					<Text style={styles.itemNext}>></Text>
+					<Text style={styles.itemText}>钱包</Text>
+					<Icon name='ios-arrow-forward'
+						color={this.state.itemIconColor}
+						size={this.state.itemIconSize}
+						style={styles.itemIconNext}
+					/>
                 </View>
 				<View style={styles.item}>
 					<Icon name='ios-card'
@@ -133,8 +154,12 @@ export default class extends Component {
 						size={this.state.itemIconSize}
 						style={styles.itemIcon}
 					/>
-                    <Text style={styles.itemText}>卡包</Text>
-					<Text style={styles.itemNext}>></Text>
+					<Text style={styles.itemText}>卡包</Text>
+					<Icon name='ios-arrow-forward'
+						color={this.state.itemIconColor}
+						size={this.state.itemIconSize}
+						style={styles.itemIconNext}
+					/>
                 </View>
 
 				<View style={styles.splitor}></View>
@@ -145,8 +170,12 @@ export default class extends Component {
 						size={this.state.itemIconSize}
 						style={styles.itemIcon}
 					/>
-                    <Text style={styles.itemText}>表情</Text>
-					<Text style={styles.itemNext}>></Text>
+					<Text style={styles.itemText}>表情</Text>
+					<Icon name='ios-arrow-forward'
+						color={this.state.itemIconColor}
+						size={this.state.itemIconSize}
+						style={styles.itemIconNext}
+					/>
                 </View>
 
                 <View style={styles.splitor}></View>
@@ -157,8 +186,12 @@ export default class extends Component {
 						size={this.state.itemIconSize}
 						style={styles.itemIcon}
 					/>
-                    <Text style={styles.itemText}>设置</Text>
-					<Text style={styles.itemNext}>></Text>
+					<Text style={styles.itemText}>设置</Text>
+					<Icon name='ios-arrow-forward'
+						color={this.state.itemIconColor}
+						size={this.state.itemIconSize}
+						style={styles.itemIconNext}
+					/>
                 </View>
             </View>
 		);

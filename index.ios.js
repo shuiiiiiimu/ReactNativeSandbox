@@ -29,7 +29,7 @@ class ReactNativeSandbox extends Component {
         super(props);
 
         this.state = {
-            selectedTab: 'person',
+            selectedTab: 'home',
         };
     }
 
